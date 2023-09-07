@@ -7,10 +7,8 @@
     height: 100%;
     box-shadow: 1rem 1rem 1rem rgba(255, 255, 255, 0.5);
     padding: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    display: grid;
+    place-items: center;
 
 
     .title{
@@ -23,6 +21,18 @@
     .description{
         font-size: 1.8rem;
         text-align: center;
+    }
+
+    .buttons{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        gap: 1rem;
+        margin: 1rem 0;
+
+        @include md {
+            flex-direction: row;
+        }    
     }
 
 

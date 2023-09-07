@@ -2,13 +2,19 @@
 
 .screen{
     width: 90%;
-    background-color: black;
+    background-color: #0a0a19;
     border-radius: 1rem;
-    color: white;
-    min-height: 15rem;
+    color: white; 
     font-weight: bold;
     font-size: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 2rem;
+
+    &.principal{
+        min-height: 15rem;
+        font-size: 4rem;
+    }
+
 }

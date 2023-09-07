@@ -2,4 +2,36 @@
 
 .button{
     
+    font-weight: bold;
+    color: white;
+    font-size: 2rem;
+    width: 100%;
+    padding: 1rem .5rem;
+    border: none;
+    opacity: 1;
+    transition: opacity .5s ease;
+    border-radius: 1rem 0;
+    height: 100%;
+
+    &.all-rounded{
+        border-radius: 1rem;
+    }
+
+    &:hover{
+        cursor: pointer;
+        opacity: .9;
+        transition: opacity .5s ease;
+    }
+
+    &.primary{
+        background-color: #0a0a19;
+    }
+
+    &.secondary{
+        background-color: #242433;
+    }
+
+    &.reset{
+        background-color: #292966;
+    }
 }

@@ -5,7 +5,7 @@ function Screen(props) {
 
 
   return (
-    <div className='screen'>
+    <div className={ props.className ? props.className + ' screen' : 'screen' }>
         {props.children}
     </div>
   )
