@@ -1,0 +1,14 @@
+@import '../../styles/responsive.scss';
+
+.screen{
+    width: 90%;
+    background-color: black;
+    border-radius: 1rem;
+    color: white;
+    min-height: 15rem;
+    font-weight: bold;
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
