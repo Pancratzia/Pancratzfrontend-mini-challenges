@@ -1,2 +1,2 @@
-# Pancratzfrontend-mini-challenges
- Collection of frontend challenges for learning and interviews
+# Frontend Mini Challenges
+ Made By Pancratzia using React.js
