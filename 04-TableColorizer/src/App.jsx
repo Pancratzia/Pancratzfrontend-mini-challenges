@@ -28,8 +28,8 @@ function App() {
       <Card>
         <Selector value={selectedOption} onChange={setSelectedOption} />
         <ButtonContainer>
-          <Button name="Reset" onClick={handleReset} />
-          <Button name="Colorize" onClick={handleColorize} />
+          <Button name="Reset" onClick={handleReset} color="#bfdbfe" />
+          <Button name="Colorize" onClick={handleColorize} color="#a5f3fc" />
         </ButtonContainer>
         <Table colors={colors} />
       </Card>
