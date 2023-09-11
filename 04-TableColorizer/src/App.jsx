@@ -7,9 +7,20 @@ import Table from './components/Table';
 
 function App() {
   const [selectedOption, setSelectedOption] = useState(1);
-
+  const [colors, setColors] = useState(Array(9).fill('#FFFFFF')); 
   const handleReset = () => {
     setSelectedOption(1);
+    setColors(Array(9).fill('#FFFFFF')); 
+  };
+
+  const handleColorize = () => {
+    const newColors = [...colors];
+    newColors[selectedOption - 1] = getRandomColor(); 
+    setColors(newColors);
+  };
+
+  const getRandomColor = () => {
+    return "#" + Math.floor(Math.random() * 16777215).toString(16);
   };
 
   return (
@@ -18,12 +29,13 @@ function App() {
         <Selector value={selectedOption} onChange={setSelectedOption} />
         <ButtonContainer>
           <Button name="Reset" onClick={handleReset} />
-          <Button name="Colorize" />
+          <Button name="Colorize" onClick={handleColorize} />
         </ButtonContainer>
-        <Table />
+        <Table colors={colors} />
       </Card>
     </div>
   );
 }
 
 export default App;
+
