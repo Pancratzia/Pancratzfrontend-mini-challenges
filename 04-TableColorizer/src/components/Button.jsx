@@ -1,9 +1,9 @@
 import React from "react";
 
 function Button(props) {
-    const { name } = props;
+  const { name, onClick } = props;
   return (
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    <button className="bg-cyan-200 hover:bg-cyan-200/80 text-black font-bold py-2 px-4 rounded w-[150px] md:w-[100px]" onClick={onClick}>
       {name}
     </button>
   );
