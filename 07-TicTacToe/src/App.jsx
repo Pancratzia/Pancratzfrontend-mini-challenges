@@ -51,6 +51,10 @@ function App() {
     return null;
   };
 
+  const checkEndGame = (boardToCheck) => {
+    return !boardToCheck.includes(null);
+  }
+
   const resetGame = () => {
     setBoard(Array(9).fill(null));
     setTurn(TURNS.X);
@@ -68,6 +72,9 @@ function App() {
     if (newWinner) {
       setWinner(newWinner);
       return;
+    }else if(checkEndGame(newBoard)){
+      setWinner(false);
+      return;
     }
 
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X;
@@ -77,6 +84,7 @@ function App() {
   return (
     <main className="board">
       <h1>Tic-Tac-Toe</h1>
+      <button onClick={resetGame}>Reset game</button>
 
       <section className="game">
         {board.map((_, index) => {
@@ -103,7 +111,7 @@ function App() {
             </header>
 
             <footer>
-              <button onClick={resetGame}>Play again</button>
+              <button onClick={resetGame}>Reset game</button>
             </footer>
           </div>
         </section>
