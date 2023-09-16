@@ -1,14 +1,6 @@
 import { useState } from "react";
-
-
-const Button = ({ children, handleClick }) => {
-  return (
-    <button className="bg-violet-700 hover:bg-violet-600 text-white font-bold py-2 px-4 rounded" onClick={handleClick}>
-      {children}
-    </button>
-  )
-}
-
+import { Button } from "./components/Button";
+import Input from "./components/Input";
 
 function App() {
 
@@ -62,7 +54,7 @@ function App() {
         </h2>
 
         <div className="w-[80%] lg:w-[70%] xl:w-[50%] my-5 mx-auto">
-          <input type="text" className="bg-white text-black font-bold py-2 px-4 rounded-xl w-full focus:outline-none" placeholder="Enter an element..." value={value} onChange={(e) => setValue(e.target.value)} />
+          <Input value={value} setValue={setValue} />
         </div>
 
         <div className="w-[80%] lg:w-[70%] xl:w-[50%] my-5 mx-auto flex flex-col md:flex-row gap-2 md:justify-between">
