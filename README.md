@@ -9,3 +9,4 @@
  |Table Colorizer|[Code](https://github.com/Pancratzia/frontend-mini-challenges/tree/main/04-TableColorizer)|[Live Demo](https://pancratzia-tablecolorizer.netlify.app/)|
  |Guess The Number|[Code](https://github.com/Pancratzia/frontend-mini-challenges/tree/main/05-GuessTheNumber)|[Live Demo](https://pancratzia-guessthenumber.netlify.app/)|
  |Star Rating|[Code](https://github.com/Pancratzia/frontend-mini-challenges/tree/main/06-StarRating)|[Live Demo](https://pancratzia-starrating.netlify.app/)|
+ |Tic Tac Toe|[Code](https://github.com/Pancratzia/frontend-mini-challenges/tree/main/07-TicTacToe)|[Live Demo](https://pancratzia-tictactoe.netlify.app/)|
