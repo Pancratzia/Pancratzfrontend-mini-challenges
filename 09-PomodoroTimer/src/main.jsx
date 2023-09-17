@@ -1,9 +1,39 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import App from "./App.jsx";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const GlobalStyle = createGlobalStyle`
+  
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body{
+    background-color: #220045;
+    font-size: 62.5%;
+  }
+
+  body{
+    font-size: 1.6rem;
+    color: white;
+  }
+  `;
+
+  const theme = {
+    colors: {
+      secondary: "#08002b",
+      primary: "#b85600",
+      bg: "#220045",
+  },}
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <App />
+    </ThemeProvider>
+  </React.StrictMode>
+);
