@@ -1,7 +1,10 @@
-export default function App() {
+
+
+function App() {
+
   return (
-    <h1 className="text-3xl w-full font-bold underline text-center">
-      Hello world!
-    </h1>
+    <h1>Hola Mundo</h1>
   )
 }
+
+export default App
