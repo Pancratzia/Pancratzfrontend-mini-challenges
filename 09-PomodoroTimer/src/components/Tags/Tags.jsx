@@ -1,8 +1,9 @@
 import styled, { css } from "styled-components";
-import { useState } from "react";
+import { useContext } from "react";
+import { StateContext } from "../StateProvider";
 
 const Tags = () => {
-  const [activeTag, setActiveTag] = useState(0);
+  const {activeTag, setActiveTag} = useContext(StateContext);
 
   const handleTagClick = (index) => {
     setActiveTag(index);
@@ -52,6 +53,7 @@ const Tag = styled.button`
   border-radius: 5rem;
   flex: 1;
   font-size: 2rem;
+  cursor: pointer;
   transition: all 0.3s;
 
   @media screen and (max-width: 768px) {
