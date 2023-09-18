@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html, body{
-    background-color: #220045;
+    background-color: ${props => props.theme.colors.bg};;
     font-size: 62.5%;
   }
 
