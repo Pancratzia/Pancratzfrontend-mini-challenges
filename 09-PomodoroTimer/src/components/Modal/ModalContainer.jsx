@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const ModalContainer = ({isOpen, onClose}) => {
   return (
     <Containter>
-      <ModalContent>
+      <ModalContent initial = {{y: "-100vh" }} animate = {{y: 0}} exit = {{y: "-100vh"}}>
         <ModalHeader>
           <ModalTitle>Modal Title</ModalTitle>
           <ModalCloseButton onClick={onClose}>X</ModalCloseButton>
@@ -27,10 +28,15 @@ place-items: center;
 z-index: 150;
 `;
 
-const ModalContent = styled.div`
+const ModalContent = styled(motion.div)`
   width: 60rem;
   height: 40rem;
   background-color: white;
+
+  @media screen and (max-width: 480px){
+    max-width: 60rem;
+    width: 90%;
+  }
 `;
 
 const ModalHeader = styled.div``;
