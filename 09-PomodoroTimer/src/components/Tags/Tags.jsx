@@ -1,8 +1,9 @@
 import styled, { css } from "styled-components";
-import { useState } from "react";
+import { useContext } from "react";
+import { StateContext } from "../StateProvider";
 
 const Tags = () => {
-  const [activeTag, setActiveTag] = useState(0);
+  const {activeTag, setActiveTag} = useContext(StateContext);
 
   const handleTagClick = (index) => {
     setActiveTag(index);
@@ -13,7 +14,7 @@ const Tags = () => {
       {["Work", "Short Break", "Long Break"].map((tag, i) => (
         <Tag
           key={i}
-          activeTag={activeTag === i}
+          activetag={activeTag === i}
           onClick={() => handleTagClick(i)}
         >
           {tag}
@@ -63,7 +64,8 @@ const Tag = styled.button`
     font-size: 1.2rem;
   }
 
-  ${({ activeTag }) => activeTag && css`
+  ${({ activetag }) => activetag && css`
     background: ${(props) => props.theme.colors.primary};
   `}
 `;
+

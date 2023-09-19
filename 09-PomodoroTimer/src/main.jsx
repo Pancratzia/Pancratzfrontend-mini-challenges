@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import App from "./App.jsx";
+import StateProvider from "./components/StateProvider.jsx";
 
 const GlobalStyle = createGlobalStyle`
   
@@ -12,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html, body{
-    background-color: ${props => props.theme.colors.bg};;
+    background-color: ${(props) => props.theme.colors.bg};;
     font-size: 62.5%;
   }
 
@@ -22,18 +23,21 @@ const GlobalStyle = createGlobalStyle`
   }
   `;
 
-  const theme = {
-    colors: {
-      secondary: "#08002b",
-      primary: "#b85600",
-      bg: "#220045",
-  },}
+const theme = {
+  colors: {
+    secondary: "#08002b",
+    primary: "#b85600",
+    bg: "#220045",
+  },
+};
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <App />
-    </ThemeProvider>
+    <StateProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <App />
+      </ThemeProvider>
+    </StateProvider>
   </React.StrictMode>
 );

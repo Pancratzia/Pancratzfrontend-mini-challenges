@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import styled from "styled-components";
+import { StateContext } from "../../../StateProvider";
 
 const Clock = () => {
-    const [time, setTime] = useState(100);
-    const [isActive, setIsActive] = useState(false);
+    const { time, setTime, isActive, setIsActive } = useContext(StateContext);
 
     useEffect(() => {
         if(isActive && time>0){
