@@ -1,13 +1,20 @@
-import React from 'react'
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
-import { FaWindowClose } from 'react-icons/fa';
-import { Formik, Form, Field } from 'formik';
+import React, { useContext } from "react";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import { FaWindowClose } from "react-icons/fa";
+import { Formik, Form, Field } from "formik";
+import { StateContext } from "../StateProvider";
 
-const ModalContainer = ({isOpen, onClose}) => {
+const ModalContainer = ({ isOpen, onClose }) => {
+
+  const {workTime, shortBreakTime, longBreakTime, setWorkTime, setShortBreakTime, setLongBreakTime} = useContext(StateContext);
   return (
     <Containter>
-      <ModalContent initial = {{y: "-100vh", scale: 0 }} animate = {{y: 0, scale: 1}} exit = {{y: "-100vh", scale: 0}}>
+      <ModalContent
+        initial={{ y: "-100vh", scale: 0 }}
+        animate={{ y: 0, scale: 1 }}
+        exit={{ y: "-100vh", scale: 0 }}
+      >
         <ModalHeader>
           <ModalTitle>Settings</ModalTitle>
           <ModalCloseButton onClick={onClose}>
@@ -15,8 +22,15 @@ const ModalContainer = ({isOpen, onClose}) => {
           </ModalCloseButton>
         </ModalHeader>
         <ModalBody>
-
-          <Formik initialValues={{work: "", short: "", long: ""}} onSubmit={()=>{}}>
+          <Formik
+            initialValues={{ work: workTime/60, short: shortBreakTime/60, long: longBreakTime/60 }}
+            onSubmit={(values) => {
+              setWorkTime(values.work * 60);
+              setShortBreakTime(values.short * 60);
+              setLongBreakTime(values.long * 60);
+              onClose();
+            }}
+          >
             <Form>
               <InputWrapper>
                 <FormControl>
@@ -25,45 +39,67 @@ const ModalContainer = ({isOpen, onClose}) => {
                 </FormControl>
                 <FormControl>
                   <label htmlFor="short">Short Break</label>
-                  <Field id="short" name="short" min="1" type="number" max="60" />
+                  <Field
+                    id="short"
+                    name="short"
+                    min="1"
+                    type="number"
+                    max="60"
+                  />
                 </FormControl>
                 <FormControl>
                   <label htmlFor="long">Long Break</label>
                   <Field id="long" name="long" min="1" type="number" max="60" />
                 </FormControl>
               </InputWrapper>
+              <ButtonWrapper>
+                <ApplyButton type="submit">Apply</ApplyButton>
+              </ButtonWrapper>
             </Form>
           </Formik>
-
         </ModalBody>
       </ModalContent>
     </Containter>
-  )
-}
+  );
+};
 
 export default ModalContainer;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding: 2rem;
+`;
+
+const ApplyButton = styled.button`
+  cursor: pointer;
+  padding: 1rem 4rem;
+  font-size: 2rem;
+  background: ${(props) => props.theme.colors.primary};
+  border-radius: 0.5rem;
+`;
 
 const InputWrapper = styled.div`
   display: flex;
   padding: 1rem;
   gap: 2rem;
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     flex-direction: column;
   }
 `;
 
 const FormControl = styled.div`
-flex: 1;
-display: flex;
-flex-direction: column;
-color: black;
-gap: .7rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  color: black;
+  gap: 0.7rem;
 
-  label{
+  label {
     font-size: 2rem;
   }
-  input{
+  input {
     width: 100%;
     font-size: 2rem;
     padding: 1rem;
@@ -74,12 +110,12 @@ gap: .7rem;
 `;
 
 const Containter = styled.div`
-position: absolute;
-height: 100vh;
-width: 100vw;
-display: grid;
-place-items: center;
-z-index: 150;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  z-index: 150;
 `;
 
 const ModalContent = styled(motion.div)`
@@ -87,9 +123,10 @@ const ModalContent = styled(motion.div)`
   height: 40rem;
   background-color: white;
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     max-width: 60rem;
     width: 90%;
+    height: auto;
   }
 `;
 
@@ -102,12 +139,12 @@ const ModalHeader = styled.div`
 `;
 
 const ModalTitle = styled.div`
-font-size: 4rem;
-font-weight: bold;
+  font-size: 4rem;
+  font-weight: bold;
 `;
 
 const ModalCloseButton = styled.button`
-all: unset;
+  all: unset;
   cursor: pointer;
 `;
 

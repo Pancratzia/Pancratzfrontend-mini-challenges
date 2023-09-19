@@ -34,7 +34,7 @@ const StateProvider = ({ children }) => {
     }, [activeTag, workTime, shortBreakTime, longBreakTime]);
 
   return (
-    <StateContext.Provider value={{ activeTag, setActiveTag, progress, setProgress, time, setTime, isActive, setIsActive, initTime, setInitTime }}>
+    <StateContext.Provider value={{ activeTag, setActiveTag, progress, setProgress, time, setTime, isActive, setIsActive, initTime, setInitTime, workTime, shortBreakTime, longBreakTime, setWorkTime, setShortBreakTime, setLongBreakTime }}>
         {children}
     </StateContext.Provider>
   )
