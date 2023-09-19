@@ -52,6 +52,7 @@ const Tag = styled.button`
   border-radius: 5rem;
   flex: 1;
   font-size: 2rem;
+  cursor: pointer;
   transition: all 0.3s;
 
   @media screen and (max-width: 768px) {

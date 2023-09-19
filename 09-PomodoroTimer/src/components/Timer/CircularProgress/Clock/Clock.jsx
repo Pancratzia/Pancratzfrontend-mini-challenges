@@ -53,6 +53,7 @@ text-align: center;
 font-size: 3rem;
 text-transform: uppercase;
 letter-spacing: 1rem;
+cursor: pointer;
 transition: all .3s;
   @media screen and (max-width: 480px) {
     font-size: 2rem;
