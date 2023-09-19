@@ -1,10 +1,19 @@
-import React from 'react'
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+import Backdrop from "./Backdrop";
+import ModalContainer from "./ModalContainer";
 
-const Modal = () => {
+const Modal = ({ isOpen, onClose }) => {
   return (
-    <div>Modal</div>
-  )
-}
+    <>
+      {isOpen && (
+        <>
+          <Backdrop />
+          <ModalContainer isOpen={isOpen} onClose={onClose} />
+        </>
+      )}
+    </>
+  );
+};
 
-export default Modal
+export default Modal;
