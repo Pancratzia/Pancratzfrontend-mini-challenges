@@ -10,7 +10,7 @@ const StateProvider = ({ children }) => {
      const [initTime, setInitTime] = useState(0);
 
     const [activeTag, setActiveTag] = useState(0);
-    const [progress, setProgress] = useState(55);
+    const [progress, setProgress] = useState(20);
     const [time, setTime] = useState(500);
     const [isActive, setIsActive] = useState(false);
 
@@ -34,7 +34,7 @@ const StateProvider = ({ children }) => {
     }, [activeTag, workTime, shortBreakTime, longBreakTime]);
 
   return (
-    <StateContext.Provider value={{ activeTag, setActiveTag, progress, setProgress, time, setTime, isActive, setIsActive }}>
+    <StateContext.Provider value={{ activeTag, setActiveTag, progress, setProgress, time, setTime, isActive, setIsActive, initTime, setInitTime }}>
         {children}
     </StateContext.Provider>
   )
