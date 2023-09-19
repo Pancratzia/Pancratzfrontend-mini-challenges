@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { StateContext } from "../../../StateProvider";
 
 const Clock = () => {
-    const {time, setTime, isActive, setIsActive, initTime} = useContext(StateContext);
+    const { time, setTime, isActive, setIsActive, initTime } = useContext(StateContext);
 
     useEffect(() => {
         if(isActive && time>0){
@@ -34,7 +34,7 @@ const Clock = () => {
     <ClockContainer>
       <TimerText>{getTime(time)}</TimerText>
       <StartPauseButton onClick={toggleClock}>{isActive ? "Pause" : "Start" }</StartPauseButton>
-    {time === 0 && <ResetButton onClick={resetTime}>RESET</ResetButton>}
+      {time === 0 && <ResetButton onClick={resetTime}>Reset</ResetButton>}
     </ClockContainer>
   );
 };
@@ -68,4 +68,5 @@ transition: all .3s;
 `;
 
 const ResetButton = styled(StartPauseButton)`
-color: red;`;
+color:red;
+`;

@@ -14,7 +14,7 @@ const Tags = () => {
       {["Work", "Short Break", "Long Break"].map((tag, i) => (
         <Tag
           key={i}
-          activeTag={activeTag === i}
+          activetag={activeTag === i}
           onClick={() => handleTagClick(i)}
         >
           {tag}
@@ -64,7 +64,8 @@ const Tag = styled.button`
     font-size: 1.2rem;
   }
 
-  ${({ activeTag }) => activeTag && css`
+  ${({ activetag }) => activetag && css`
     background: ${(props) => props.theme.colors.primary};
   `}
 `;
+

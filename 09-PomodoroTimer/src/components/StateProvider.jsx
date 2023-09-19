@@ -1,20 +1,18 @@
-import { createContext, useEffect, useState } from 'react';
-
+import React, { createContext, useEffect, useState } from 'react'
 export const StateContext = createContext();
 
-const StateProvider = ({children}) => {
+const StateProvider = ({ children }) => {
 
     const [workTime, setWorkTime] = useState(25 * 60);
-    const [shortBreakTime, setShortBreakTime] = useState(5 * 60);
-    const [longBreakTime, setLongBreakTime] = useState(30 * 60);
+    const [shortBreakTime, setShortBreakTime] = useState(5);
+    const [longBreakTime, setLongBreakTime] = useState(15 * 60);
 
-    const [initTime, setInitTime] = useState(0);
+     const [initTime, setInitTime] = useState(0);
 
     const [activeTag, setActiveTag] = useState(0);
-    const [progress, setProgress] = useState(100);
-    const [time, setTime] = useState(100);
+    const [progress, setProgress] = useState(20);
+    const [time, setTime] = useState(500);
     const [isActive, setIsActive] = useState(false);
-
 
     useEffect((time) => {
         switch (activeTag) {
@@ -36,7 +34,7 @@ const StateProvider = ({children}) => {
     }, [activeTag, workTime, shortBreakTime, longBreakTime]);
 
   return (
-    <StateContext.Provider value={{activeTag, setActiveTag, progress, setProgress, isActive, setIsActive, time, setTime, initTime, setInitTime, workTime, setWorkTime, shortBreakTime, setShortBreakTime, longBreakTime, setLongBreakTime}}>
+    <StateContext.Provider value={{ activeTag, setActiveTag, progress, setProgress, time, setTime, isActive, setIsActive, initTime, setInitTime }}>
         {children}
     </StateContext.Provider>
   )
