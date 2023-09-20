@@ -5,18 +5,22 @@ const OPTIONS = [
   {
     name: "Resignation",
     inputs: ["Name", "Position", "Company", "Date", "Reason"],
+    message: ``,
   },
   {
     name: "Welcome",
     inputs: ["Name", "Company", "Position", "Sender", "SenderPosition"],
+    message: ``,
   },
   {
     name: "Promotion",
     inputs: ["Name", "Position", "Company", "PastPosition", "NewPosition"],
+    message: ``,
   },
   {
     name: "Love Letter",
     inputs: ["SenderName", "RecipientName", "Petname"],
+    message: `Dear {RecipientName}, I love you {Petname}. I'm writing this letter to tell you how much I love you. - All the love, {SenderName}.`,
   },
 ];
 
@@ -45,18 +49,34 @@ const DropDown = ({ options, handleChange }) => {
   );
 };
 
-const Input = ({ inputs }) => {
+const Input = ({ inputs, values }) => {
+
   return (
-    <div>
-      {inputs.map((input) => (
-        <div key={input}>{input}</div>
+    <>
+      {inputs.map((input, index) => (
+        <div key={index} className="flex flex-col py-1">
+          <label htmlFor={input} className="text-gray-700 font-bold pb-1">{input + ":"}</label>
+          <input key={index} type="text" name={input} className="outline-none w-full border-b-2" />
+        </div>
       ))}
-    </div>
+    </>
   );
 };
 
+const TemplateEmail = ({template}) => {
+  
+  return (
+    <>
+      <h2 className="text-2xl font-bold text-center text-gray-700" >{template.name}</h2>
+      <p className="text-gray-500 p-2">{template.message}</p>
+    </>
+  );
+
+}
+
 function App() {  
   const [templateID, setTemplateID] = useState(0);
+
 
   const handleDropDownChange = (e) => {
     setTemplateID(e.target.value);
@@ -84,11 +104,17 @@ function App() {
           <DropDown options={OPTIONS} handleChange={handleDropDownChange} />
         </div>
 
-        <div>
+        <div className="pt-2 pb-8 w-[90%] my-0 mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-3">
           <Input inputs={OPTIONS[templateID].inputs} />
         </div>
 
-        <div>Template Email</div>
+        <div>
+
+        </div>
+
+        <div className="pt-2 pb-8 w-[90%] my-0 mx-auto border-2 rounded-lg">
+          <TemplateEmail template={OPTIONS[templateID]} />
+        </div>
       </div>
     </div>
   );
