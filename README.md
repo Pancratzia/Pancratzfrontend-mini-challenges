@@ -12,4 +12,5 @@
  |Tic Tac Toe|[Code](https://github.com/Pancratzia/frontend-mini-challenges/tree/main/07-TicTacToe)|[Live Demo](https://pancratzia-tictactoe.netlify.app/)|
  |Stack|[Code](https://github.com/Pancratzia/frontend-mini-challenges/tree/main/08-Stack)|[Live Demo](https://pancratzia-stack.netlify.app/)|
  |Pomodoro Clock|[Code](https://github.com/Pancratzia/frontend-mini-challenges/tree/main/09-PomodoroTimer)|[Live Demo](https://pancratzia-pomodoro.netlify.app/)|
+ |MailTemplate|[Code](https://github.com/Pancratzia/frontend-mini-challenges/tree/main/10-MailTemplate)|[Live Demo](https://pancratzia-mailtemplate.netlify.app/)|
 
