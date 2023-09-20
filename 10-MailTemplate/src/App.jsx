@@ -21,8 +21,7 @@ const OPTIONS = [
     name: "Love Letter",
     inputs: ["SenderName", "RecipientName", "Petname"],
     message: `Dear {RecipientName}, I love you {Petname}. I'm writing this letter to tell you how much I love you. - All the love, {SenderName}.`,
-  },
-];
+  },];
 
 const DropDown = ({ options, handleChange }) => {
   return (
@@ -84,7 +83,7 @@ function App() {
 
   return (
     <div className="h-screen w-screen flex justify-center items-center bg-gradient-to-t from-gray-900 to-gray-700">
-      <div className="bg-white w-[90%] h-[90%] max-w-[1200px] p-3">
+      <div className="bg-white w-[90%] h-[90%] max-w-[1200px] p-3 overflow-y-auto">
         <h1 className="text-4xl font-bold text-center uppercase pb-3 text-gray-700">
           Mail Template Creator
         </h1>
