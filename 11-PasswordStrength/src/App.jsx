@@ -1,34 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import PasswordStrengthMeter from "./components/PasswordStrengthMeter"
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+   <div className="container">
+    <div className="col-md-6 mx-auto">
+      <h1 className="text-center mt-3 fw-bold text-uppercase">Password Strength Checker</h1>
+      <h2 className="text-center mb-5">by Pancratzia</h2>
+
+      <div className="form-group">
+        <input type="password" className="form-control" placeholder="Password..." />
+
+        <PasswordStrengthMeter />
+
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
+   </div>
   )
 }
 
