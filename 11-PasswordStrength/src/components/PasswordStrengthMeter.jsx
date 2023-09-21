@@ -29,13 +29,31 @@ const PasswordStrengthMeter = ({ password }) => {
         height: '7px',
     })
 
+    const createPassLabel = () => {
+        switch(testResult.score) {
+            case 0:
+                return "Very Weak";
+            case 1:
+                return "Weak";
+            case 2:
+                return "Fair";
+            case 3:
+                return "Good";
+            case 4:
+                return "Strong";
+            default:
+                return none;     
+        }
+    }
+
   return (
     <>
         <div className="progress" style={{height: '7px'}}>
             <div className="progress-bar" style={changePasswordColor()}>
-
             </div>
         </div>
+
+        <p className="text-right" style={{color: functionProgressColor()}}>{createPassLabel()}</p>
     </>
   )
 }
