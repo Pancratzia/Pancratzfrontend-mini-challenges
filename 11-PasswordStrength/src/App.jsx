@@ -1,7 +1,10 @@
+import { useState } from "react";
 import PasswordStrengthMeter from "./components/PasswordStrengthMeter"
 
 
 function App() {
+
+  const [password, setPassword] = useState('');
   
   return (
    <div className="container">
@@ -10,9 +13,9 @@ function App() {
       <h2 className="text-center mb-5">by Pancratzia</h2>
 
       <div className="form-group mb-1">
-        <input type="password" className="form-control shadow-none" placeholder="Password..." />
+        <input type="password" className="form-control shadow-none" placeholder="Password..." onChange={(e) => setPassword(e.target.value)}/>
       </div>
-        <PasswordStrengthMeter />
+        <PasswordStrengthMeter password={password} />
     </div>
    </div>
   )
