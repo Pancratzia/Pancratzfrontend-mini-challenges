@@ -5,8 +5,32 @@ import { SiWindicss } from "react-icons/si";
 import { BsFillSunFill, BsCloudyFill, BsFillCloudRainFill, BsCloudFog2Fill  } from "react-icons/bs";
 import {RiLoaderFill} from "react-icons/ri";
 import { TiWeatherPartlySunny } from "react-icons/ti";
+import axios from "axios";
+import { useEffect } from "react";
 
 const DisplayWeather = () => {
+
+  const api_key = import.meta.env.VITE_API_KEY;
+  const api_endpoint = import.meta.env.VITE_API_ENDPOINT;
+
+  const getcurrentWeather = async (lat: number, lon: number) =>{
+    const url = `${api_endpoint}weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`;
+    const response = await axios.get(url);
+    return response.data;
+  }
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const { latitude, longitude } = position.coords;
+
+      Promise.all([getcurrentWeather(latitude, longitude)]).then(
+        ([currentWeather]) =>{
+          console.log(currentWeather);
+        }
+      )
+    })
+  }, []);
+
   return (
     <MainWrapper>
       <div className="container">
