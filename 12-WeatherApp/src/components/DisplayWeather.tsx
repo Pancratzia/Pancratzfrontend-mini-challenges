@@ -11,7 +11,7 @@ import {
 import { RiLoaderFill } from "react-icons/ri";
 import { TiWeatherPartlySunny } from "react-icons/ti";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface WeatherDataProps {
   name: string;
@@ -54,6 +54,42 @@ const DisplayWeather = () => {
     });
   }, []);
 
+  const iconChanger = (icon: string) => {
+    let iconElement: React.ReactNode;
+    let iconColor: string;
+
+    switch (icon) {
+      case "Rain":
+        iconElement = <BsFillCloudRainFill />;
+        iconColor = "#272829";
+        break;
+      case "Clear":
+        iconElement = <BsFillSunFill />;
+        iconColor = "#FFC436";
+        break;
+
+      case "Clouds":
+        iconElement = <BsCloudyFill />;
+        iconColor = "#102C57";
+        break;
+
+      case "Mist":
+        iconElement = <BsCloudFog2Fill />;
+        iconColor = "#279EFF";
+        break;
+
+      default:
+        iconElement = <TiWeatherPartlySunny />;
+        iconColor = "#7B2869";
+    }
+
+    return (
+      <span className="icon" style={{ color: iconColor }}>
+        {iconElement}
+      </span>
+    )
+  };
+
   return (
     <MainWrapper>
       <div className="container">
@@ -70,7 +106,9 @@ const DisplayWeather = () => {
             <div className="weatherArea">
               <h1>{weatherData.name}</h1>
               <span>{weatherData.sys.country}</span>
-              <div className="icon">icon</div>
+              <div className="icon">
+                {iconChanger(weatherData.weather[0].main)}
+              </div>
               <h1>{weatherData.main.temp}°C</h1>
               <h2>{weatherData.weather[0].main}</h2>
             </div>
@@ -94,7 +132,6 @@ const DisplayWeather = () => {
             </div>
           </>
         )}
-
       </div>
     </MainWrapper>
   );
