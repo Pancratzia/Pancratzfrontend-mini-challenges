@@ -14,3 +14,4 @@
  |Pomodoro Clock|[Code](https://github.com/Pancratzia/frontend-mini-challenges/tree/main/09-PomodoroTimer)|[Live Demo](https://pancratzia-pomodoro.netlify.app/)|
  |MailTemplate|[Code](https://github.com/Pancratzia/frontend-mini-challenges/tree/main/10-MailTemplate)|[Live Demo](https://pancratzia-mailtemplate.netlify.app/)|
  |Password Strength|[Code](https://github.com/Pancratzia/frontend-mini-challenges/tree/main/11-PasswordStrength)|[Live Demo](https://pancratzia-passwordstrength.netlify.app/)|
+ |Weather App|[Code](https://github.com/Pancratzia/frontend-mini-challenges/tree/main/12-WeatherApp)|[Live Demo](https://pancratzia-weatherapp.netlify.app/)|
