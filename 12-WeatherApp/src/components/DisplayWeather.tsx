@@ -36,6 +36,8 @@ const DisplayWeather = () => {
 
   const [weatherData, setWeatherData] = useState<WeatherDataProps | null>(null);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const getcurrentWeather = async (lat: number, lon: number) => {
     const url = `${api_endpoint}weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`;
     const response = await axios.get(url);
@@ -49,6 +51,7 @@ const DisplayWeather = () => {
       Promise.all([getcurrentWeather(latitude, longitude)]).then(
         ([currentWeather]) => {
           setWeatherData(currentWeather);
+          setIsLoading(true);
         }
       );
     });
@@ -101,7 +104,7 @@ const DisplayWeather = () => {
           </div>
         </div>
 
-        {weatherData && (
+        {weatherData && isLoading ? (
           <>
             <div className="weatherArea">
               <h1>{weatherData.name}</h1>
@@ -131,6 +134,11 @@ const DisplayWeather = () => {
               </div>
             </div>
           </>
+        ) : (
+          <div className="loading">
+            <RiLoaderFill className="loadingIcon" />
+            <p>Loading...</p>
+          </div>
         )}
       </div>
     </MainWrapper>
