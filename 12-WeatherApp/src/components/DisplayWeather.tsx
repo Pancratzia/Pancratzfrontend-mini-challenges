@@ -38,6 +38,8 @@ const DisplayWeather = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
+  const [searchCity, setSearchCity] = useState("");
+
   const getcurrentWeather = async (lat: number, lon: number) => {
     const url = `${api_endpoint}weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`;
     const response = await axios.get(url);
@@ -57,6 +59,29 @@ const DisplayWeather = () => {
     });
   }, []);
 
+  const fetchWeatherData = async(city: string) => {
+    try{
+      const url = `${api_endpoint}weather?q=${city}&appid=${api_key}&units=metric`;
+      const response = await axios.get(url);
+      const currentWeatherData: WeatherDataProps = response.data;
+      return {currentWeatherData};
+    }catch(err){
+      console.error("Not Data Found");
+      throw err;
+    }
+  };
+
+  const handleSearch = async () => {
+    if(searchCity.trim() === "") return;
+
+    try{
+      const {currentWeatherData} = await fetchWeatherData(searchCity);
+      setWeatherData(currentWeatherData);
+      setSearchCity("");
+    }catch(err){
+      console.error("Not Result Found");
+    }
+  }
   const iconChanger = (icon: string) => {
     let iconElement: React.ReactNode;
     let iconColor: string;
@@ -97,10 +122,10 @@ const DisplayWeather = () => {
     <MainWrapper>
       <div className="container">
         <div className="searchArea">
-          <input type="text" placeholder="Enter a city..." />
+          <input type="text" placeholder="Enter a city..." value={searchCity} onChange={(e) => setSearchCity(e.target.value)} />
 
           <div className="searchCircle">
-            <AiOutlineSearch className="searchIcon" />
+            <AiOutlineSearch className="searchIcon" onClick={handleSearch} />
           </div>
         </div>
 
