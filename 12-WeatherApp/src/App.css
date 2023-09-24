@@ -1,6 +1,15 @@
-body{
-    margin: 0;
-    min-height: 100vh;
-background: linear-gradient(to right, #c7c7eb, #ccf2dd);
-width: 100vw;
+html{
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 2rem 0;
+  min-height: 100vh;
+  background: linear-gradient(to right, #c7c7eb, #ccf2dd);
+  width: 100vw;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

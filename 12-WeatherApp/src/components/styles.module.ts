@@ -7,18 +7,21 @@ export const MainWrapper = styled.div`
 background-color: #ffffff7d;
 border-radius: 12px;
 padding: 1rem;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
 box-shadow: 0 10px 15px rgb(0 0 0 / 20%);
 box-sizing: border-box;
 color: rgba(0, 0, 0, 0.8);
 background-blend-mode: overlay;
-justify-content: space-between;
-align-items: center;
-flex-direction: column;
-position: absolute;
+width: 100%;
+max-width: 1200px;
+margin: 0 auto;
+
+}
+
+@media only screen and (max-width: 480px) {
+    .container{
+        margin: 0 auto;
+        min-width: 95%;
+    }
 }
 
 
@@ -81,6 +84,12 @@ font-size: 3rem;
 font-family: "Bebas Neue", sans-serif;
 }
 
+@media only screen and (max-width: 480px) {
+    h1{
+        font-size: 2rem;   
+    }
+}
+
 
 > span {
 margin-bottom: 10px;
@@ -110,6 +119,13 @@ rgba(253, 255, 232, 1) 100%
 border-radius: 12px;
 padding: 10px;
 }
+
+@media only screen and (max-width: 480px) {
+    .bottomInfoArea{
+        flex-direction: column;
+    }
+}
+
 .humidityLevel,
 .wind {
 display: flex;
