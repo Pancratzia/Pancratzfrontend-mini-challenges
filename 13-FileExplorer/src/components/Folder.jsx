@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Folder = ({ explorer, handleInsertNode }) => {
+const Folder = ({ explorer, handleInsertNode, handleDeleteNode }) => {
   const [expand, setExpand] = useState(false);
   const [showInput, setShowInput] = useState({
     visible: false,
@@ -12,18 +12,24 @@ const Folder = ({ explorer, handleInsertNode }) => {
     setExpand(true);
     setShowInput({
       visible: true,
-      isFolder
-    })
+      isFolder,
+    });
   };
 
   const onAddFolder = (e) => {
-    if(e.keyCode === 13 && e.target.value) {
-        handleInsertNode(explorer.id, e.target.value, showInput.isFolder)
+    if (e.keyCode === 13 && e.target.value) {
+      handleInsertNode(explorer.id, e.target.value, showInput.isFolder);
       setShowInput({
-          ...showInput, visible: false
-      })
+        ...showInput,
+        visible: false,
+      });
     }
-  }
+  };
+
+  const handleDelete = (e) => {
+    e.stopPropagation();
+    handleDeleteNode(explorer.id);
+  };
 
   if (explorer.isFolder) {
     return (
@@ -38,6 +44,7 @@ const Folder = ({ explorer, handleInsertNode }) => {
           <div>
             <button onClick={(e) => handleNewFolder(e, true)}>➕📁</button>
             <button onClick={(e) => handleNewFolder(e, false)}>➕📃</button>
+            <button onClick={handleDelete}>❌</button>
           </div>
         </div>
         <div style={{ display: expand ? "block" : "none", marginLeft: "25px" }}>
@@ -45,23 +52,35 @@ const Folder = ({ explorer, handleInsertNode }) => {
             <div className="inputContainer">
               <span>{showInput.isFolder ? "📁" : "📃"}</span>
               <input
-               className="inputContainer__input"
-               type="text"
-               autoFocus
-               onKeyDown={onAddFolder}
-               onBlur={()=>setShowInput({...showInput, visible: false})}
-               />
+                className="inputContainer__input"
+                type="text"
+                autoFocus
+                onKeyDown={onAddFolder}
+                onBlur={() => setShowInput({ ...showInput, visible: false })}
+              />
             </div>
           )}
 
           {explorer.items.map((item) => {
-            return <Folder key={item.id} explorer={item} handleInsertNode={handleInsertNode} />;
+            return (
+              <Folder
+                key={item.id}
+                explorer={item}
+                handleInsertNode={handleInsertNode}
+                handleDeleteNode={handleDeleteNode}
+              />
+            );
           })}
         </div>
       </div>
     );
   } else {
-    return <span className="file">📃 {explorer.name}</span>;
+    return (
+      <div className="file__container">
+        <span className="file">📃 {explorer.name}</span>
+        <button onClick={handleDelete}>❌</button>
+      </div>
+    );
   }
 };
 

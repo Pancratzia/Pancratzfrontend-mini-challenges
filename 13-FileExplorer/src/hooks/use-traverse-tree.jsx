@@ -19,7 +19,20 @@ const useTraverseTree = () => {
     return {...tree, items: latestNode};
   }
 
-  return { insertNode };
+  function deleteNode(tree, nodeId) {
+    if (tree.id === nodeId) {
+      return null;
+    }
+
+    const updatedItems = tree.items.map((item) => deleteNode(item, nodeId)).filter(Boolean);
+
+    return {
+      ...tree,
+      items: updatedItems,
+    };
+  }
+
+  return { insertNode, deleteNode };
 };
 
 export default useTraverseTree;
