@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import './styles.css';
 import explorer from './data/folderData.js';
 import Folder from './components/Folder.jsx';
 function App() {
