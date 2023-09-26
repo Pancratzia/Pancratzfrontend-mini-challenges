@@ -10,28 +10,28 @@ const explorer = {
         items: [
           {
             id:"3",
-            name: "public nested 1",
+            name: "assets",
             isFolder: true,
             items: [
               {
                 id:"4",
-                name: "index.html",
+                name: "favicon.ico",
                 isFolder: false,
                 items: []
               },
-              {
-                id:"5",
-                name: "hello.html",
-                isFolder: false,
-                items: []
-              }
             ]
           },
           {
-            id:"6",
-            name: "public_nested_file",
-            isFolder: false,
-            items: []
+            id:"5",
+            name: "img",
+            isFolder: true,
+            items: [
+              {
+                id:"6",
+                name: "header.png",
+                isFolder: false,
+              }
+            ]
           }
         ]
       },
