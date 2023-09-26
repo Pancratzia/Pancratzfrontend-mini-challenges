@@ -20,8 +20,8 @@ function App() {
         <h1>Lista de Tareas</h1>
 
         <div className="counter-todos">
-          <h3>Nº de Tareas: {todosCount}</h3>
-          <h3>Pendientes: {pendingTodosCount}</h3>
+          <h3>Nº de Tareas: <span>{todosCount}</span></h3>
+          <h3>Pendientes: <span>{pendingTodosCount}</span></h3>
         </div>
 
         <div className="add-todo">
