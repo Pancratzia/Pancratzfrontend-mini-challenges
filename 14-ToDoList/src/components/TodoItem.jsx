@@ -1,17 +1,28 @@
-import {FaTrash} from 'react-icons/fa'
-import TodoUpdate from './TodoUpdate'
-const TodoItem = () => {
-  return (
-    <li>
-        <span>
-            <label htmlFor="" className="container-done"></label>
-        </span>
-        <TodoUpdate />
-        <button className="btn-delete">
-            <FaTrash />
-        </button>
-    </li>
-  )
-}
+import { FaTrash } from "react-icons/fa";
+import TodoUpdate from "./TodoUpdate";
 
-export default TodoItem
+const TodoItem = ({
+	todo,
+	handleUpdateTodo,
+	handleDeleteTodo,
+	handleCompleteTodo,
+}) => {
+	return (
+		<li>
+			<span onClick={() => handleCompleteTodo(todo.id)}>
+				<label
+					className={`container-done`}
+				></label>
+			</span>
+			<TodoUpdate todo={todo} handleUpdateTodo={handleUpdateTodo} />
+			<button
+				className='btn-delete'
+				onClick={() => handleDeleteTodo(todo.id)}
+			>
+				<FaTrash />
+			</button>
+		</li>
+	);
+};
+
+export default TodoItem;

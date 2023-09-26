@@ -1,13 +1,15 @@
 import { FaEdit } from "react-icons/fa"
 
-const TodoUpdate = () => {
+const TodoUpdate = ( { todo, handleUpdateTodo} ) => {
+
+  
   return (
     <form>
       <input
         type="text"
         className="input-update"
         name="description"
-        value="Aprender React.js"
+        value={todo.description}
         placeholder="¿Qué quieres hacer?"
       />
 
