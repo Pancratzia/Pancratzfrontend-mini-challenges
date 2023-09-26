@@ -15,3 +15,4 @@
  |MailTemplate|[Code](https://github.com/Pancratzia/frontend-mini-challenges/tree/main/10-MailTemplate)|[Live Demo](https://pancratzia-mailtemplate.netlify.app/)|
  |Password Strength|[Code](https://github.com/Pancratzia/frontend-mini-challenges/tree/main/11-PasswordStrength)|[Live Demo](https://pancratzia-passwordstrength.netlify.app/)|
  |Weather App|[Code](https://github.com/Pancratzia/frontend-mini-challenges/tree/main/12-WeatherApp)|[Live Demo](https://pancratzia-weatherapp.netlify.app/)|
+ |File Explorer|[Code](https://github.com/Pancratzia/frontend-mini-challenges/tree/main/13-FileExplorer)|[Live Demo](https://pancratzia-fileexplorer.netlify.app/)|
