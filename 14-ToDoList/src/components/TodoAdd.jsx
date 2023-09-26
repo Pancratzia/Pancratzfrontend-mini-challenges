@@ -1,9 +1,19 @@
-
-
 const TodoAdd = () => {
   return (
-    <div>TodoAdd</div>
-  )
-}
+    <form>
+      <input
+        type="text"
+        className="input-add"
+        name="description"
+        value="Aprender React.js"
+        placeholder="¿Qué quieres hacer?"
+      />
 
-export default TodoAdd
+      <button className="btn-add" type="submit">
+        Agregar
+      </button>
+    </form>
+  );
+};
+
+export default TodoAdd;
