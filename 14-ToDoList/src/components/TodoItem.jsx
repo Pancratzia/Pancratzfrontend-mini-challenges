@@ -11,7 +11,7 @@ const TodoItem = ({
 		<li>
 			<span onClick={() => handleCompleteTodo(todo.id)}>
 				<label
-					className={`container-done`}
+					className={`container-done ${todo.done ? "active" : ""}`}
 				></label>
 			</span>
 			<TodoUpdate todo={todo} handleUpdateTodo={handleUpdateTodo} />

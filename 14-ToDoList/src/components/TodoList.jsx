@@ -7,7 +7,6 @@ const TodoList = ({
   handleUpdateTodo,
 }) => {
 
-  console.log(todos);
   return (
     <ul>
       {todos.map((todo) => (
