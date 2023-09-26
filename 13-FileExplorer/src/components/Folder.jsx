@@ -1,11 +1,19 @@
+import { useEffect } from "react";
 import { useState } from "react";
 
-const Folder = ({ explorer, handleInsertNode, handleDeleteNode }) => {
+const Folder = ({
+  explorer,
+  handleInsertNode,
+  handleDeleteNode,
+  handleEditNode,
+}) => {
   const [expand, setExpand] = useState(false);
   const [showInput, setShowInput] = useState({
     visible: false,
     isFolder: null,
   });
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedName, setEditedName] = useState(explorer.name);
 
   const handleNewFolder = (e, isFolder) => {
     e.stopPropagation();
@@ -31,20 +39,70 @@ const Folder = ({ explorer, handleInsertNode, handleDeleteNode }) => {
     handleDeleteNode(explorer.id);
   };
 
+  const handleEdit = (e) => {
+    e.stopPropagation();
+    setIsEditing(true);
+  };
+  
+  const handleCancelEdit = () => {
+    setIsEditing(false);
+    setEditedName(explorer.name);
+  };
+  
+  const handleSaveEdit = () => {
+    setIsEditing(false);
+    handleEditNode(explorer.id, editedName);
+  };
+  
+  const handleClickOutside = () => {
+    if (isEditing) {
+      handleCancelEdit();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [isEditing]);
+
+
+
   if (explorer.isFolder) {
     return (
-      <div style={{ marginTop: "5px" }}>
+      <div style={{ marginTop: "5px" }} onClick={handleClickOutside}>
         <div
           className="folder"
           style={{ cursor: "pointer" }}
           onClick={() => setExpand(!expand)}
         >
-          <span>📁 {explorer.name}</span>
+          <span>📁 
+          {isEditing ? (
+            <input
+              type="text"
+              value={editedName}
+              onChange={(e) => setEditedName(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSaveEdit();
+                }
+              }}
+              autoFocus
+              onBlur={handleCancelEdit}
+
+            />
+          ) : (
+            `${explorer.name}`
+          )}
+        </span>
+
 
           <div>
-            <button onClick={(e) => handleNewFolder(e, true)}>➕📁</button>
-            <button onClick={(e) => handleNewFolder(e, false)}>➕📃</button>
-            <button onClick={handleDelete}>❌</button>
+          <button onClick={(e) => handleNewFolder(e, true)}>➕📁</button>
+          <button onClick={(e) => handleNewFolder(e, false)}>➕📃</button>
+          <button onClick={handleEdit}>✏️</button>
+          <button onClick={handleDelete}>❌</button>
           </div>
         </div>
         <div style={{ display: expand ? "block" : "none", marginLeft: "25px" }}>
@@ -68,6 +126,7 @@ const Folder = ({ explorer, handleInsertNode, handleDeleteNode }) => {
                 explorer={item}
                 handleInsertNode={handleInsertNode}
                 handleDeleteNode={handleDeleteNode}
+                handleEditNode={handleEditNode}
               />
             );
           })}
@@ -76,11 +135,29 @@ const Folder = ({ explorer, handleInsertNode, handleDeleteNode }) => {
     );
   } else {
     return (
-      <div className="file__container">
-        <span className="file">📃 {explorer.name}</span>
-        <button onClick={handleDelete}>❌</button>
-      </div>
-    );
+        <div className="file__container">
+          <span>📃 
+            {isEditing ? (
+              <input
+                type="text"
+                value={editedName}
+                onChange={(e) => setEditedName(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handleSaveEdit();
+                  }
+                }}
+                onBlur={handleCancelEdit}
+                autoFocus
+              />
+            ) : (
+              `${explorer.name}`
+            )}
+          </span>
+          <button onClick={handleEdit}>✏️</button>
+          <button onClick={handleDelete}>❌</button>
+        </div>
+      );
   }
 };
 

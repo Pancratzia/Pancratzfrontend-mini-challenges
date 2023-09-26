@@ -32,7 +32,24 @@ const useTraverseTree = () => {
     };
   }
 
-  return { insertNode, deleteNode };
+  function editNode(tree, nodeId, newName) {
+    if (tree.id === nodeId) {
+      return {
+        ...tree,
+        name: newName,
+      };
+    }
+
+    const updatedItems = tree.items.map((item) => editNode(item, nodeId, newName));
+
+    return {
+      ...tree,
+      items: updatedItems,
+    };
+  }
+
+  return { insertNode, deleteNode, editNode };
+
 };
 
 export default useTraverseTree;
