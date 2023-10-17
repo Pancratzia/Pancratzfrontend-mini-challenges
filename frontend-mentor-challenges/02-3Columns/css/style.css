@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap");
+
+:root {
+  --font700: "Big Shoulders Display", cursive;
+  --font400: "Lexend Deca", sans-serif;
+
+  --orange: hsl(31, 77%, 52%);
+  --darkCyan: hsl(184, 100%, 22%);
+  --veryDarkCyan: hsl(179, 100%, 13%);
+  --transparentWhite: hsla(0, 0%, 100%, 0.75);
+  --veryLightGray: hsl(0, 0%, 95%);
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.6rem;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--veryLightGray);
+}
+
+.cards {
+  width: min(95%, 100rem);
+  margin: 10rem 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  padding: 5rem 5.5rem;
+}
+
+.card--orange {
+  border-radius: 1rem 1rem 0 0;
+  background-color: var(--orange);
+}
+
+@media only screen and (min-width: 768px) {
+  .card--orange {
+    border-radius: 1rem 0 0 1rem;
+  }
+}
+
+.card--dark-cyan {
+  background-color: var(--darkCyan);
+}
+
+.card--very-dark-cyan {
+  border-radius: 0 0 1rem 1rem;
+  background-color: var(--veryDarkCyan);
+}
+
+@media only screen and (min-width: 768px) {
+  .card--very-dark-cyan {
+    border-radius: 0 1rem 1rem 0;
+  }
+}
+
+.card__title {
+  color: var(--veryLightGray);
+  font-family: var(--font700);
+  text-transform: uppercase;
+  font-size: 3rem;
+  margin: 3rem 0;
+}
+
+.card__description {
+  color: var(--transparentWhite);
+  font-family: var(--font400);
+  line-height: 2;
+  margin-bottom: 3rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .card__description {
+    margin-bottom: 10rem;
+  }
+}
+
+.card__button {
+  border-radius: 5rem;
+  border: 0.2rem solid var(--veryLightGray);
+  outline: none;
+  padding: 1.4rem 4rem;
+  cursor: pointer;
+  font-family: var(--font400);
+  font-weight: 700;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+.card__button:hover {
+  background-color: transparent;
+  border: 0.2rem solid var(--veryLightGray);
+  color: var(--veryLightGray);
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+.card__button--orange {
+  color: var(--orange);
+}
+
+.card__button--dark-cyan {
+  color: var(--darkCyan);
+}
+
+.card__button--very-dark-cyan {
+  color: var(--veryDarkCyan);
+}
