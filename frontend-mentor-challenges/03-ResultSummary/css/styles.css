@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700;800&display=swap");
+
+:root {
+  --fontFamily: "Hanken Grotesk", sans-serif;
+
+  --rojo: hsl(0, 100%, 67%);
+  --rojoOpaco: hsla(0, 100%, 67%, 0.05);
+  --amarillo: hsl(39, 100%, 56%);
+  --amarilloOpaco: hsla(39, 100%, 56%, 0.05);
+  --verde: hsl(166, 100%, 37%);
+  --verdeOpaco: hsla(166, 100%, 37%, 0.05);
+  --azul: hsl(234, 85%, 45%);
+  --azulOpaco: hsla(234, 85%, 45%, 0.05);
+
+  --fondoMorado: hsl(252, 100%, 67%);
+  --fondoAzul: hsl(241, 81%, 54%);
+
+  --circuloMorado: hsla(256, 72%, 46%, 1);
+  --circuloAzul: hsla(241, 72%, 46%, 0);
+
+  --blanco: hsl(0, 0%, 100%);
+  --azulPalido: hsl(221, 100%, 96%);
+  --lavanda: hsl(241, 100%, 89%);
+  --grisaceo: hsl(224, 30%, 27%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-family: var(--fontFamily);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.8rem;
+  margin: 0;
+  padding: 0;
+}
+
+@media only screen and (min-width: 768px) {
+    
+  body {
+    height: 100vh;
+    display: grid;
+    place-content: center;
+  }
+
+  .card {
+    margin: 2rem auto;
+    width: min(75rem, 90%);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-radius: 3rem;
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.15);
+  }
+}
+
+.panel {
+  padding: 3rem;
+}
+
+.panel__title {
+  font-size: 2rem;
+}
+
+/*PANEL AZUL*/
+
+.panel--blue {
+  background-color: var(--fondoAzul);
+  background: linear-gradient(to top, var(--fondoAzul), var(--fondoMorado));
+  border-radius: 0 0 3rem 3rem;
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .panel--blue {
+    border-radius: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    padding: 5rem 6rem;
+  }
+}
+
+.panel__title--result {
+  color: var(--lavanda);
+  margin-bottom: 2rem;
+}
+
+.circle {
+  background: linear-gradient(
+    to bottom,
+    var(--circuloMorado) 5%,
+    var(--circuloAzul) 95%
+  );
+  border-radius: 50%;
+  width: 14rem;
+  height: 14rem;
+  margin: 0 auto;
+  display: grid;
+  place-content: center;
+  margin-bottom: 2rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .circle {
+    width: 16rem;
+    height: 16rem;
+  }
+}
+
+.circle__score {
+  color: var(--blanco);
+  font-size: 5.6rem;
+  font-weight: 800;
+}
+
+.circle__percent {
+  color: var(--lavanda);
+  font-size: 1.6rem;
+  font-weight: 700;
+  opacity: 0.45;
+}
+
+.panel__great {
+  color: var(--blanco);
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.panel__text {
+  color: var(--lavanda);
+  font-weight: 500;
+}
+
+/*PANEL BLANCO*/
+
+@media only screen and (min-width: 768px) {
+  .panel--white {
+    padding: 5rem 3rem;
+  }
+}
+
+.panel__title--summary {
+  color: var(--grisaceo);
+  font-weight: 800;
+}
+
+.categories {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .categories {
+    margin-bottom: 3.2rem;
+  }
+}
+
+.category {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.6rem;
+  border-radius: 1rem;
+}
+
+.category--red {
+  background-color: var(--rojoOpaco);
+}
+
+.category--red .category__title {
+  color: var(--rojo);
+}
+
+.category--yellow {
+  background-color: var(--amarilloOpaco);
+}
+
+.category--yellow .category__title {
+  color: var(--amarillo);
+}
+
+.category--green {
+  background-color: var(--verdeOpaco);
+}
+
+.category--green .category__title {
+  color: var(--verde);
+}
+
+.category--blue {
+  background-color: var(--azulOpaco);
+}
+
+.category--blue .category__title {
+  color: var(--azul);
+}
+
+.category__left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.category__title {
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+.category__score {
+  font-weight: 700;
+  color: var(--grisaceo);
+}
+
+.category__score--100 {
+  opacity: 0.5;
+}
+
+/*BOTON*/
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 1.6rem;
+  text-align: center;
+  color: var(--azulPalido);
+  font-weight: 700;
+  font-size: 1.8rem;
+  border: none;
+  border-radius: 3rem;
+  background-color: var(--grisaceo);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: var(--fondoAzul);
+  transition: background-color 0.3s ease-in-out;
+}
