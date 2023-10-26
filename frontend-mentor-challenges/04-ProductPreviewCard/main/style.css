@@ -54,17 +54,43 @@ img {
   background-color: var(--blanco);
   border-radius: 1rem;
 }
+@media only screen and (min-width: 768px) {
+  .card {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 .img--desktop {
   display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .img--desktop {
+    display: block;
+    border-radius: 1rem 0 0 1rem;
+  }
 }
 
 .img--mobile {
   border-radius: 1rem 1rem 0 0;
 }
 
+@media only screen and (min-width: 768px) {
+  .img--mobile {
+    display: none;
+  }
+}
+
 .product {
   padding: 2rem 3rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .product {
+    padding: 3rem;
+  }
 }
 
 .product__category {
@@ -76,13 +102,25 @@ img {
   letter-spacing: 0.5rem;
 }
 
+@media only screen and (min-width: 768px) {
+  .product__category {
+    margin-bottom: 2rem; 
+  }
+}
+
 .product__name {
   font-family: var(--Fraunces);
   color: var(--azul_oscuro);
-  font-size: 3rem;
+  font-size: 3.2rem;
   font-weight: 700;
   line-height: 1;
   margin-bottom: 1.6rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .product__name {
+    margin-bottom: 2rem;
+  }
 }
 
 .product__description {
