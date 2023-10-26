@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap");
+
+:root {
+  --verde_oscuro: hsl(158, 36%, 37%);
+  --verde_hover: hsl(158, 36%, 25%);
+  --crema: hsl(30, 38%, 92%);
+  --azul_oscuro: hsl(212, 21%, 14%);
+  --azul_claro: hsl(228, 12%, 48%);
+  --blanco: hsl(0, 0%, 100%);
+
+  --Monzserrat: "Montserrat", sans-serif;
+  --Fraunces: "Fraunces", serif;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--crema);
+  font-size: 1.4rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+.card {
+  width: min(60rem, 92%);
+  background-color: var(--blanco);
+  border-radius: 1rem;
+}
+
+.img--desktop {
+  display: none;
+}
+
+.img--mobile {
+  border-radius: 1rem 1rem 0 0;
+}
+
+.product {
+  padding: 2rem 3rem;
+}
+
+.product__category {
+  font-family: var(--Monzserrat);
+  color: var(--azul_claro);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+}
+
+.product__name {
+  font-family: var(--Fraunces);
+  color: var(--azul_oscuro);
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 1.6rem;
+}
+
+.product__description {
+  font-family: var(--Monzserrat);
+  color: var(--azul_claro);
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+.product__price {
+  font-family: var(--Fraunces);
+  color: var(--verde_oscuro);
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  margin: 1.6rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.product__price--old {
+  font-family: var(--Monzserrat);
+  color: var(--azul_claro);
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-decoration: line-through;
+  margin-left: 1rem;
+}
+
+.btn {
+  background-color: var(--verde_oscuro);
+  color: var(--blanco);
+  padding: 1.6rem 3.2rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  font-family: var(--Monzserrat);
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+}
