@@ -1,37 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+
   <title>Frontend Mentor | Order summary card</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
+
 <body>
 
-  Order Summary
+  <div class="card">
 
-  You can now listen to millions of songs, audiobooks, and podcasts on any 
-  device anywhere you like!
+    <img src="images/illustration-hero.svg" alt="Hero illustration">
 
-  Annual Plan
-  $59.99/year
+    <div class="order_summary">
 
-  Change
+      <h1 class="order_summary__title">Order Summary</h1>
+      <p class="order_summary__text">You can now listen to millions of songs, audiobooks, and podcasts on any device
+        anywhere you like!</p>
 
-  Proceed to Payment
-  Cancel Order
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+      <div class="subscription">
+
+        <img src="images/icon-music.svg" alt="Music icon">
+
+        <div class="subscription__plan">
+          <p class="subscription__plan--bold">Annual Plan</p>
+          <p class="subscription__plan--regular">$59.99/year</p>
+        </div>
+
+        <a class="subscription__link" href="#">Change</a>
+
+      </div>
+
+      <a class="button button--blue" href="#">Proceed to Payment</a>
+      <a class="button button--transparent" href="#">Cancel Order</a>
+
+    </div>
+
   </div>
+
 </body>
+
 </html>
