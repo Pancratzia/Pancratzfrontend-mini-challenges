@@ -59,7 +59,7 @@ img {
 
 
 .card{
-    width: min(90%, 37.5rem);
+    width: min(90%, 42rem);
     background-color: white;
     border-radius: 1.5rem;
     overflow: hidden;
@@ -68,8 +68,10 @@ img {
 }
 
 .order_summary{
-    padding: 3rem 2rem;
+    padding: 3rem;
+    padding-bottom: 2rem;
     height: 100%;
+    line-height: 1.6;
 }
 
 .order_summary__title{
@@ -77,4 +79,95 @@ img {
     font-weight: 900;
     color: var(--dark-blue);
     text-align: center;
+}
+
+.order_summary__text{
+    color: var(--desaturated-blue);
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.subscription{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--very-pale-blue);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    margin: 3rem 0;
+}
+
+.subscription__info{
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.subscription__info__plan{
+    font-size: 1.4rem;
+}
+
+.subscription__info__plan--bold{
+    font-weight: 900;
+    color: var(--dark-blue);
+}
+
+.subscription__info__plan--light{
+    color: var(--desaturated-blue);
+}
+
+.subscription__link{
+    color: var(--bright-blue);
+    font-weight: 900;
+    font-size: 1.3rem;
+    transition: opacity 0.3s ease, text-decoration 0.3s ease;
+}
+
+.subscription__link:hover{
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease, text-decoration 0.3s ease;
+}
+
+.button{
+    display: block;
+    text-align: center;
+    padding: 1.2rem 0;
+}
+
+.button--blue{
+    background-color: var(--bright-blue);
+    color: white;
+    border-radius: 0.8rem;
+    font-weight: 900;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 1rem 2rem -1rem var(--bright-blue);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.button--blue:hover{
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.button--transparent{
+    font-weight: 900;
+    text-decoration: none;
+    border: none;
+    margin: 1rem 0 0;
+    transition: color 0.3s ease;
+}
+
+.button__anchor{
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--desaturated-blue);
+    transition: color 0.3s ease;
+}
+
+.button__anchor:hover{
+    color: var(--dark-blue);
+    transition: color 0.3s ease;
 }

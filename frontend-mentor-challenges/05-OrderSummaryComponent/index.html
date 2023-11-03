@@ -27,11 +27,13 @@
 
       <div class="subscription">
 
-        <img src="images/icon-music.svg" alt="Music icon">
+        <div class="subscription__info">
+          <img class="subscription__info__icon" src="images/icon-music.svg" alt="Music icon">
 
-        <div class="subscription__plan">
-          <p class="subscription__plan--bold">Annual Plan</p>
-          <p class="subscription__plan--regular">$59.99/year</p>
+          <div class="subscription__info__plan">
+            <p class="subscription__info__plan--bold">Annual Plan</p>
+            <p class="subscription__info__plan--light">$59.99/year</p>
+          </div>
         </div>
 
         <a class="subscription__link" href="#">Change</a>
@@ -39,7 +41,10 @@
       </div>
 
       <a class="button button--blue" href="#">Proceed to Payment</a>
-      <a class="button button--transparent" href="#">Cancel Order</a>
+
+      <div class="button button--transparent">
+        <a class="button__anchor" href="#">Cancel Order</a>
+      </div>
 
     </div>
 
