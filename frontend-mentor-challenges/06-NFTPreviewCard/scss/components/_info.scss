@@ -1,0 +1,25 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.info{
+    display: flex;
+    gap: 10px;
+
+
+    &--currency{
+        
+        p{
+            color: v.$cyan;
+            font-weight: v.$bold;
+        }
+    }
+
+    &--time{
+
+        p{
+            color: v.$soft-blue;
+        }
+
+    }
+
+}
