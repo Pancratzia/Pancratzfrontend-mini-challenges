@@ -1,0 +1,26 @@
+@use '../base/variables' as v;
+
+.title{
+
+    font-size: clamp(1.5em, 5vw, 2.5em);
+    font-weight: v.$bold;
+    text-align: center;
+    margin: 0;
+    color: v.$very-dark-blue;
+
+    &__top{
+        font-weight: v.$thin;
+    }
+}
+
+.description{
+    text-align: center;
+    color: v.$grayish-blue;
+    font-size: 14px;
+    margin: 10px;
+
+    @media (min-width: 768px){
+        width: min(500px, 90%);
+        margin: 10px auto;
+    }
+}
