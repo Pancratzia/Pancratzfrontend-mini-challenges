@@ -9,6 +9,11 @@
         gap: 15px;
         justify-content: center;
         align-items: center;
+
+        @media screen and (min-width: 1024px) {
+            justify-content: flex-end;
+            
+        }
     }
 
     &__link{
@@ -21,11 +26,32 @@
         align-items: center;
         width: 30px;
         height: 30px;
+        transition: all .3s;
+
+        @media screen and (min-width: 1024px) {
+            width: 40px;
+            height: 40px;
+            
+        }
+
+        &:hover{
+            border-color: v.$soft-magenta;
+
+            i, svg{
+                    color: v.$soft-magenta;
+            }
+        }
 
         i, svg{
             font-size: 15px;
             margin: 0 auto;
             box-sizing: inherit;
+            transition: all .3s;
+
+            @media screen and (min-width: 1024px) {
+                font-size: 20px;
+            }
+
         }
     }
 }

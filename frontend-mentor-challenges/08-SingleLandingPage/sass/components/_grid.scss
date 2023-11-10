@@ -2,10 +2,21 @@
 
 .grid{
     width: 100%;
-    margin: 60px 0;
+    margin: 80px 0;
+
+    @media screen and (min-width: 1024px) {
+        display: flex; 
+        gap: 30px;
+    }
+
 
     &__content{
         text-align: center;
+
+        @media screen and (min-width: 1024px) {
+            height: 100%;
+            text-align: left;
+        }
     }
 
     &__title{
@@ -14,6 +25,10 @@
         color: white;
         font-size: clamp(1.5rem, 2.5vw, 2.5rem);
         margin: 60px 0 0;
+
+        @media screen and (min-width: 1024px) {
+            margin: 45px 0 0;
+        }
     }
 
     &__paragraph{
@@ -33,6 +48,18 @@
         border: none;
         border-radius: 30px;
         padding: 10px 70px;
-        cursor: pointer;
+        transition: all .3s;
+
+        @media screen and (min-width: 1024px) {
+            font-size: 20px;
+        }
+        
+
+        &:hover{
+            cursor: pointer;
+            background-color: v.$soft-magenta;
+            color: white;
+            transition: all .3s;
+        }
     }
 }

@@ -20,6 +20,12 @@ body {
   background-image: url(../images/bg-mobile.svg);
   background-repeat: no-repeat;
 }
+@media screen and (min-width: 1024px) {
+  body {
+    background-image: url(../images/bg-desktop.svg);
+    background-size: cover;
+  }
+}
 
 h1,
 h2,
@@ -38,20 +44,43 @@ img {
 
 .container {
   width: 80%;
-  max-width: 1200px;
   margin: 20px auto;
+  max-width: 1410px;
+}
+@media screen and (min-width: 1024px) {
+  .container {
+    margin: 60px auto;
+    width: 85%;
+  }
 }
 
 .header__logo {
   width: 150px;
 }
+@media screen and (min-width: 1024px) {
+  .header__logo {
+    width: 250px;
+  }
+}
 
 .grid {
   width: 100%;
-  margin: 60px 0;
+  margin: 80px 0;
+}
+@media screen and (min-width: 1024px) {
+  .grid {
+    display: flex;
+    gap: 30px;
+  }
 }
 .grid__content {
   text-align: center;
+}
+@media screen and (min-width: 1024px) {
+  .grid__content {
+    height: 100%;
+    text-align: left;
+  }
 }
 .grid__title {
   font-family: "Poppins", sans-serif;
@@ -59,6 +88,11 @@ img {
   color: white;
   font-size: clamp(1.5rem, 2.5vw, 2.5rem);
   margin: 60px 0 0;
+}
+@media screen and (min-width: 1024px) {
+  .grid__title {
+    margin: 45px 0 0;
+  }
 }
 .grid__paragraph {
   font-family: "Open Sans", sans-serif;
@@ -76,7 +110,18 @@ img {
   border: none;
   border-radius: 30px;
   padding: 10px 70px;
+  transition: all 0.3s;
+}
+@media screen and (min-width: 1024px) {
+  .grid__button {
+    font-size: 20px;
+  }
+}
+.grid__button:hover {
   cursor: pointer;
+  background-color: hsl(300, 69%, 71%);
+  color: white;
+  transition: all 0.3s;
 }
 
 .footer {
@@ -89,6 +134,11 @@ img {
   justify-content: center;
   align-items: center;
 }
+@media screen and (min-width: 1024px) {
+  .footer__nav {
+    justify-content: flex-end;
+  }
+}
 .footer__link {
   color: white;
   text-decoration: none;
@@ -99,9 +149,28 @@ img {
   align-items: center;
   width: 30px;
   height: 30px;
+  transition: all 0.3s;
+}
+@media screen and (min-width: 1024px) {
+  .footer__link {
+    width: 40px;
+    height: 40px;
+  }
+}
+.footer__link:hover {
+  border-color: hsl(300, 69%, 71%);
+}
+.footer__link:hover i, .footer__link:hover svg {
+  color: hsl(300, 69%, 71%);
 }
 .footer__link i, .footer__link svg {
   font-size: 15px;
   margin: 0 auto;
   box-sizing: inherit;
+  transition: all 0.3s;
+}
+@media screen and (min-width: 1024px) {
+  .footer__link i, .footer__link svg {
+    font-size: 20px;
+  }
 }/*# sourceMappingURL=app.css.map */

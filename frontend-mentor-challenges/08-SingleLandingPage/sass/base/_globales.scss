@@ -20,6 +20,11 @@ html {
     background-color: v.$violet;
     background-image: url(../images/bg-mobile.svg);
     background-repeat: no-repeat;
+
+    @media screen and (min-width: 1024px) {
+      background-image: url(../images/bg-desktop.svg);
+      background-size: cover;
+    }
   }
   
   h1,
@@ -39,7 +44,12 @@ html {
 
   .container {
     width: 80%;
-    max-width: 1200px;
     margin: 20px auto;
+    max-width: 1410px;
+
+    @media screen and (min-width: 1024px) {
+      margin: 60px auto;
+      width: 85%;
+    }
   }
   
