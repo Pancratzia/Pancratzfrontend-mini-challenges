@@ -1,0 +1,31 @@
+@use '../base/variables' as v;
+
+.footer{
+    width: 100%;
+    text-align: center;
+
+    &__nav{
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__link{
+        color: white;
+        text-decoration: none;
+        border-radius: 50%;
+        border: 1px solid white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+
+        i, svg{
+            font-size: 15px;
+            margin: 0 auto;
+            box-sizing: inherit;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+@use '../base/variables' as v;
+
+html {
+    box-sizing: border-box;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: v.$violet;
+    background-image: url(../images/bg-mobile.svg);
+    background-repeat: no-repeat;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+
+  .container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+  }
+  

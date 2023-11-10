@@ -1,0 +1,38 @@
+@use '../base/variables' as v;
+
+.grid{
+    width: 100%;
+    margin: 60px 0;
+
+    &__content{
+        text-align: center;
+    }
+
+    &__title{
+        font-family: v.$font-poppins;
+        font-weight: 600;
+        color: white;
+        font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+        margin: 60px 0 0;
+    }
+
+    &__paragraph{
+        font-family: v.$font-sans;
+        color: white;
+        font-size: 16px;
+        opacity: .8;
+        line-height: 1.6;
+        margin: 20px 0;
+    }
+
+    &__button{
+        font-family: v.$font-poppins;
+        font-weight: 400;
+        color: v.$violet;
+        background-color: white;
+        border: none;
+        border-radius: 30px;
+        padding: 10px 70px;
+        cursor: pointer;
+    }
+}
